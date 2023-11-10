@@ -6,7 +6,7 @@ class Parkir {
     private static final double BIAYA_FLAT_24_JAM = 15.0;
     private static final int BATAS_WAKTU_FLAT_24_JAM = 24;
 
-    private int jamParkir;
+    private final int jamParkir;
 
     public Parkir(int jamParkir) {
         this.jamParkir = jamParkir;
@@ -15,10 +15,13 @@ class Parkir {
     public double hitungBiayaParkir() {
         if (jamParkir <= 5) {
             return BIAYA_5_JAM_PERTAMA;
-        } else if (jamParkir <= BATAS_WAKTU_FLAT_24_JAM) {
+        } else if (jamParkir < BATAS_WAKTU_FLAT_24_JAM) {
             return BIAYA_5_JAM_PERTAMA + (jamParkir - 5) * BIAYA_PER_JAM_SELANJUTNYA;
-        } else {
+        } else if (jamParkir == BATAS_WAKTU_FLAT_24_JAM) {
             return BIAYA_FLAT_24_JAM;
+        }else {
+            return BIAYA_FLAT_24_JAM + ((jamParkir - 24) * BIAYA_PER_JAM_SELANJUTNYA);
+
         }
     }
 }
