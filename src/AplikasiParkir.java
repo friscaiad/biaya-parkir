@@ -16,7 +16,7 @@ class Parkir {
         if (jamParkir <= 5) {
             return BIAYA_5_JAM_PERTAMA;
         } else if (jamParkir < BATAS_WAKTU_FLAT_24_JAM) {
-            return BIAYA_5_JAM_PERTAMA + (jamParkir - 5) * BIAYA_PER_JAM_SELANJUTNYA;
+            return BIAYA_5_JAM_PERTAMA + ((jamParkir - 5) * BIAYA_PER_JAM_SELANJUTNYA);
         } else if (jamParkir == BATAS_WAKTU_FLAT_24_JAM) {
             return BIAYA_FLAT_24_JAM;
         }else {
